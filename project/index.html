@@ -36,7 +36,7 @@
         </div>
         <div class="row mt-3">
           <div class="col-md-12 col-lg-6 mb-4">
-            <table class="table table table-dark table-p1" style="display: none;">
+            <table class="table table table-dark table-p1">
               <thead>
                 <tr>
                   <th colspan="2" class="text-info text-center">
@@ -49,29 +49,31 @@
                   <td class="text-primary text-center">PLayer 1's Input</td>
                   <td class="text-primary text-center">PLayer 2's Input</td>
                 </tr>
-                <tr>
-                  <td><input type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
-                  <td><input type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
-                </tr>
-                <tr>
-                  <td class="text-info" style="text-align: end;">Choose Player 2's Guess</td>
-                  <td>
-                    <select name="player2Guess" id="player2Guess" class="form-control">
-                      <option value="odd" selected>Odd</option>
-                      <option value="even">Even</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="2">
-                    <div class="d-flex justify-content-center">
-                      <input type="submit" class="btn btn-success btn-sm" placeholder="Enter a Number (Between 1 - 9)">
-                    </div>
-                  </td>
-                </tr>
+                <form>
+                  <tr>
+                    <td><input type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
+                    <td><input type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
+                  </tr>
+                  <tr>
+                    <td class="text-info" style="text-align: end;">Choose Player 2's Guess</td>
+                    <td>
+                      <select name="player2Guess" id="player2Guess" class="form-control">
+                        <option value="odd" selected>Odd</option>
+                        <option value="even">Even</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <div class="d-flex justify-content-center">
+                        <input type="submit" class="btn btn-success btn-sm" value="Submit">
+                      </div>
+                    </td>
+                  </tr>
+                </form>
               </tbody>
             </table>
-            <table class="table table table-dark table-p2">
+            <table class="table table table-dark table-p2" style="display: none;">
               <thead>
                 <tr>
                   <th colspan="2" class="text-info text-center">
@@ -84,26 +86,28 @@
                   <td class="text-primary text-center">PLayer 1's Input</td>
                   <td class="text-primary text-center">PLayer 2's Input</td>
                 </tr>
-                <tr>
-                  <td><input type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
-                  <td><input type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
-                </tr>
-                <tr>
-                  <td class="text-info" style="text-align: end;">Choose Player 1's Guess</td>
-                  <td>
-                    <select name="player1Guess" id="player1Guess" class="form-control">
-                      <option value="even" selected>Even</option>
-                      <option value="odd">Odd</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="2">
-                    <div class="d-flex justify-content-center">
-                      <input type="submit" class="btn btn-success btn-sm" placeholder="Enter a Number (Between 1 - 9)">
-                    </div>
-                  </td>
-                </tr>
+                <form>
+                  <tr>
+                    <td><input type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
+                    <td><input type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
+                  </tr>
+                  <tr>
+                    <td class="text-info" style="text-align: end;">Choose Player 1's Guess</td>
+                    <td>
+                      <select name="player1Guess" id="player1Guess" class="form-control">
+                        <option value="even" selected>Even</option>
+                        <option value="odd">Odd</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <div class="d-flex justify-content-center">
+                        <input type="submit" class="btn btn-success btn-sm" value="Submit">
+                      </div>
+                    </td>
+                  </tr>
+                </form>
               </tbody>
             </table>
           </div>
