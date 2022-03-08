@@ -13,6 +13,9 @@
     let hours =0;
     let mins =0;
     let seconds =0;
+    let p1GamePoints = 10;
+    let p2GamePoints = 20;
+    
     startBtn.addEventListener('click',e=>{
         e.preventDefault();
         startTimer();
@@ -54,6 +57,7 @@
             } else {
                 secondsDisplay.textContent=seconds;
             }
+            gameResultDeclare();
             startTimer();
         },1000);
     }
@@ -165,6 +169,31 @@
             p2Submit.removeAttribute("disabled");
         }else{
             p2Submit.setAttribute("disabled", "disabled");
+        }
+    }
+
+    /**
+     * Game Functionality
+     */
+     
+    function gameResultDeclare(){
+        if(parseInt(secondsDisplay.textContent) == 30 && parseInt(minsDisplay.textContent)==0){
+            hours =0;
+            mins =0;
+            seconds =0;
+            hoursDisplay.textContent='00';
+            secondsDisplay.textContent='00';
+            minsDisplay.textContent='00';
+            clearTimeout(timex);
+            if(p1GamePoints > p2GamePoints || p1GamePoints == 20){
+                alert('Player 1 won');
+            }else if(p1GamePoints < p2GamePoints || p2GamePoints == 20){
+                alert('Player 2 won');
+            }
+            else{
+                alert('Match Draw');
+            }
+            window.location.reload(true);
         }
     }
 
