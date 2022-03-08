@@ -3,9 +3,9 @@ Gganbu means "old and close friend". It also means "partner".
 
 ![HTML View](./screenshot.jpg)
 ### Features
- - [ ] Game will start, when clicking the 'Start' Button
- - [ ] Game will be abandoned & reset, when Clicking the 'Reset' Button
- - [ ] Game's timer can't be paused or reset before reaching to 0:00
+ - [x] Game's timer will start, when clicking the 'Start' Button
+ - [x] Game's timer will pause, when clicking the 'Pause' Button
+ - [x] Game's timer will restart, when clicking the 'Reset' Button
  - [ ] In this game , there will be 2 players
  - [ ] The 2 players will be given 10 points each at the start of the game
  - [ ] The player who achieves 20 points will be declared as 'Winner'
