@@ -13,18 +13,125 @@
 
     <!-- Favicon -->
 
-    <title>Project Name</title>
+    <title>gGanbu</title>
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h1 class="text-center text-primary">Bootstrap <sub class="text-warning">(v5.0)</sub></h1>
-          <hr>
+    
+    <div class="bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+              <h1 class="text-white text-center">Let's Play gGanbu</h1>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-12 col-md-6">
+            <button type="button" class="btn btn-sm btn-success" id="start">Start</button>
+            <button type="button" class="btn btn-sm btn-warning" id="reset">Reset</button>
+          </div>
+          <div class="col-12 col-md-6">
+            <p class="text-white" style="text-align: end;">Timer: <span id="timer">00 : 00</span></p>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-12 col-lg-6 mb-4">
+            <table class="table table table-dark table-p1" style="display: none;">
+              <thead>
+                <tr>
+                  <th colspan="2" class="text-info text-center">
+                    <h3><b>PLayer 1 Turn</b></h3>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-primary text-center">PLayer 1's Input</td>
+                  <td class="text-primary text-center">PLayer 2's Input</td>
+                </tr>
+                <tr>
+                  <td><input type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
+                  <td><input type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
+                </tr>
+                <tr>
+                  <td class="text-info" style="text-align: end;">Choose Player 2's Guess</td>
+                  <td>
+                    <select name="player2Guess" id="player2Guess" class="form-control">
+                      <option value="odd" selected>Odd</option>
+                      <option value="even">Even</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <div class="d-flex justify-content-center">
+                      <input type="submit" class="btn btn-success btn-sm" placeholder="Enter a Number (Between 1 - 9)">
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table table table-dark table-p2">
+              <thead>
+                <tr>
+                  <th colspan="2" class="text-info text-center">
+                    <h3><b>PLayer 2 Turn</b></h3>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-primary text-center">PLayer 1's Input</td>
+                  <td class="text-primary text-center">PLayer 2's Input</td>
+                </tr>
+                <tr>
+                  <td><input type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
+                  <td><input type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
+                </tr>
+                <tr>
+                  <td class="text-info" style="text-align: end;">Choose Player 1's Guess</td>
+                  <td>
+                    <select name="player1Guess" id="player1Guess" class="form-control">
+                      <option value="even" selected>Even</option>
+                      <option value="odd">Odd</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <div class="d-flex justify-content-center">
+                      <input type="submit" class="btn btn-success btn-sm" placeholder="Enter a Number (Between 1 - 9)">
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-md-12 col-lg-6 mb-4">
+            <table class="table text-white">
+              <thead>
+                <tr>
+                  <th>Turn</th>
+                  <th>PLayer 1 Points</th>
+                  <th>PLayer 2 Points</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span>Initial</span></td>
+                  <td>Previous: <span>10</span>, Present: <span>10</span></td>
+                  <td>Previous: <span>10</span>, Present: <span>10</span></td>
+                </tr>
+                <tr>
+                  <td><span>Player 1</span></td>
+                  <td>Previous: <span>10</span>, Present: <span>10</span></td>
+                  <td>Previous: <span>10</span>, Present: <span>10</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
-
 
     <!-- Bootstrap JS -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
