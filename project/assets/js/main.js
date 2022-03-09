@@ -13,6 +13,7 @@
     const game_time_second = document.querySelector('#game_time_second');
     const p1SubmitRow = document.querySelector('#p1SubmitRow');
     const p2SubmitRow = document.querySelector('#p2SubmitRow');
+    const display_board = document.querySelector('#display_board');
     let hoursDisplay = document.querySelector('#hours');
     let minsDisplay = document.querySelector('#mins');
     let secondsDisplay = document.querySelector('#seconds');
@@ -21,6 +22,22 @@
     let seconds =0;
     let p1GamePoints = 10;
     let p2GamePoints = 10;
+    let p1PrevPoints = p1GamePoints;
+    let p2PrevPoints = p2GamePoints;
+    const p1Submit = document.querySelector('#p1Submit');
+    const p2Submit = document.querySelector('#p2Submit');
+    const p1Table = document.querySelector('.table-p1');
+    const p2Table = document.querySelector('.table-p2');
+    const p1Input1 = document.querySelector('#p1Input1');
+    const p1Input2 = document.querySelector('#p1Input2');
+    const p2Input1 = document.querySelector('#p2Input1');
+    const p2Input2 = document.querySelector('#p2Input2');
+    let p1Turn = true;
+    let p2Turn = false;
+    let p1Input1SubmitEnabled = false;
+    let p1Input2SubmitEnabled = false;
+    let p2Input1SubmitEnabled = false;
+    let p2Input2SubmitEnabled = false;
 
     initialStage();
 
@@ -37,6 +54,10 @@
         startTimer();
         p1SubmitRow.classList.remove("d-none");
         p2SubmitRow.classList.remove("d-none");
+        p1Input1.value = '';
+        p1Input2.value = '';
+        p2Input1.value = '';
+        p2Input2.value = '';
     });
     stopBtn.addEventListener('click',e=>{
         e.preventDefault();
@@ -44,6 +65,9 @@
     });
     resetBtn.addEventListener('click',e=>{
         e.preventDefault();
+        resetEverything();
+    });
+    function resetEverything(){
         hours =0;
         mins =0;
         seconds =0;
@@ -55,7 +79,13 @@
         p2SubmitRow.classList.remove("d-none");
         p1SubmitRow.classList.add("d-none");
         p2SubmitRow.classList.add("d-none");
-    });
+        p1Input1.value = '';
+        p1Input2.value = '';
+        p2Input1.value = '';
+        p2Input2.value = '';
+        p1GamePoints = 10;
+        p2GamePoints = 10;
+    }
     function startTimer(){
         timex = setTimeout(function(){
             seconds++;
@@ -87,20 +117,6 @@
     /**
      * Turn Functionality
      */
-    const p1Submit = document.querySelector('#p1Submit');
-    const p2Submit = document.querySelector('#p2Submit');
-    const p1Table = document.querySelector('.table-p1');
-    const p2Table = document.querySelector('.table-p2');
-    const p1Input1 = document.querySelector('#p1Input1');
-    const p1Input2 = document.querySelector('#p1Input2');
-    const p2Input1 = document.querySelector('#p2Input1');
-    const p2Input2 = document.querySelector('#p2Input2');
-    let p1Turn = true;
-    let p2Turn = false;
-    let p1Input1SubmitEnabled = false;
-    let p1Input2SubmitEnabled = false;
-    let p2Input1SubmitEnabled = false;
-    let p2Input2SubmitEnabled = false;
     turnTracker(p1Turn,p2Turn);
     checkEnableBtn();
     
@@ -135,6 +151,7 @@
         turnTracker(p1Turn,p2Turn);
         checkEnableBtn();
         pointDivide();
+        gameResultDeclare();
         p1Input1.value = p1Input2.value = '';
     });
     p2Submit.addEventListener('click',function(e){
@@ -144,6 +161,7 @@
         turnTracker(p1Turn,p2Turn);
         checkEnableBtn();
         pointDivide();
+        gameResultDeclare();
         p2Input1.value = p2Input2.value = '';
     });
 
@@ -196,12 +214,6 @@
 
     function gameResultDeclare(){
         if(parseInt(secondsDisplay.textContent) == game_time_second.textContent && parseInt(minsDisplay.textContent)==game_time_minute.textContent){
-            hours =0;
-            mins =0;
-            seconds =0;
-            hoursDisplay.textContent='00';
-            secondsDisplay.textContent='00';
-            minsDisplay.textContent='00';
             if(p1GamePoints > p2GamePoints || p1GamePoints == 20){
                 alert('Player 1 won');
             }else if(p1GamePoints < p2GamePoints || p2GamePoints == 20){
@@ -210,40 +222,60 @@
             else{
                 alert('Match Draw');
             }
+            resetEverything();
             window.location.reload(true);
+        }else{
+            if(p1GamePoints == 20){
+                alert('Player 1 won');
+                resetEverything();
+                window.location.reload(true);
+            }
+            if(p2GamePoints == 20){
+                alert('Player 2 won');
+                resetEverything();
+                window.location.reload(true);
+            }
         }
     }
 
     function pointDivide(){
+        p1PrevPoints = p1GamePoints;
+        p2PrevPoints = p2GamePoints;
         switch (true) {
             case p1Turn==true:
                 if((player2Guess.value=='even' && parseInt(p2Input1.value)%2 == 0) || (player2Guess.value=='odd' && parseInt(p2Input1.value)%2 != 0)){
-                    p2GamePoints+= parseInt(p2Input1.value);
                     p1GamePoints-= parseInt(p2Input1.value);
+                    p2GamePoints+= parseInt(p2Input1.value);  
                 }else{
-                    p2GamePoints-= parseInt(p2Input2.value);
                     p1GamePoints+= parseInt(p2Input2.value);
+                    p2GamePoints-= parseInt(p2Input2.value);
                 }
-                // console.log('p1-point: '+p1GamePoints+', p2-input1:'+p2Input1.value);
-                // console.log('p2-point: '+p2GamePoints+', p2-input2:'+p2Input2.value);
-                console.log('Player 2\'s guess was '+player2Guess.value);
-                console.log(`Turn: Player 2, previous points of P2: ${p2GamePoints+parseInt(p2Input2.value)} and current points of P2: ${p2GamePoints}`);
-                console.log(`Turn: Player 2, previous points of P1: ${p1GamePoints-parseInt(p2Input2.value)} and current points of P1: ${p1GamePoints}`);
+                display_board.insertAdjacentHTML("beforeend",`
+                    <tr>
+                    <td><span>Player 2</span></td>
+                    <td><span>(${player2Guess.value.toUpperCase()})</span></td>
+                    <td>Previous: <span>${p1PrevPoints}</span>, Current: <span>${p1GamePoints}</span></td>
+                    <td>Previous: <span>${p2PrevPoints}</span>, Current: <span>${p2GamePoints}</span></td>
+                    </tr>
+                `);
                 gameResultDeclare();
                 break;
             case p2Turn==true:
                 if((player1Guess.value=='even' && parseInt(p1Input2.value)%2 == 0) || (player1Guess.value=='odd' && parseInt(p1Input2.value)%2 != 0)){
-                    p2GamePoints-= parseInt(p1Input2.value);
                     p1GamePoints+= parseInt(p1Input2.value);
+                    p2GamePoints-= parseInt(p1Input2.value);
                 }else{
-                    p2GamePoints+= parseInt(p1Input1.value);
                     p1GamePoints-= parseInt(p1Input1.value);
+                    p2GamePoints+= parseInt(p1Input1.value);
                 }
-                // console.log('p1-point: '+p1GamePoints+', p1-input1:'+p1Input1.value);
-                // console.log('p2-point: '+p2GamePoints+', p1-input2:'+p1Input2.value);
-                console.log('Player 1\'s guess was '+player1Guess.value);
-                console.log(`Turn: Player 1, previous points of P1: ${p1GamePoints+parseInt(p1Input1.value)} and current points of P1: ${p1GamePoints}`);
-                console.log(`Turn: Player 1, previous points of P2: ${p2GamePoints-parseInt(p1Input1.value)} and current points of P2: ${p2GamePoints}`);
+                display_board.insertAdjacentHTML("beforeend",`
+                    <tr>
+                    <td><span>Player 1</span></td>
+                    <td><span>(${player1Guess.value.toUpperCase()})</span></td>
+                    <td>Previous: <span>${p1PrevPoints}</span>, Current: <span>${p1GamePoints}</span></td>
+                    <td>Previous: <span>${p2PrevPoints}</span>, Current: <span>${p2GamePoints}</span></td>
+                    </tr>
+                `);
                 gameResultDeclare();
                 break;
         }
