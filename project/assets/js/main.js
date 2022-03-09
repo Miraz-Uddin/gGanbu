@@ -9,6 +9,8 @@
     const startBtn = document.querySelector('#start');
     const stopBtn = document.querySelector('#stop');
     const resetBtn = document.querySelector('#reset');
+    const game_time_minute = document.querySelector('#game_time_minute');
+    const game_time_second = document.querySelector('#game_time_second');
     let hoursDisplay = document.querySelector('#hours');
     let minsDisplay = document.querySelector('#mins');
     let secondsDisplay = document.querySelector('#seconds');
@@ -183,9 +185,9 @@
     /**
      * Game Functionality
      */
-     
+
     function gameResultDeclare(){
-        if(parseInt(secondsDisplay.textContent) == 15 && parseInt(minsDisplay.textContent)==0){
+        if(parseInt(secondsDisplay.textContent) == game_time_second.textContent && parseInt(minsDisplay.textContent)==game_time_minute.textContent){
             hours =0;
             mins =0;
             seconds =0;

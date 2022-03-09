@@ -25,16 +25,39 @@
           </div>
         </div>
         <div class="row mt-3">
-          <div class="col-12 col-md-6">
-            <button type="button" class="btn btn-sm btn-success" id="start">Start</button>
-            <button type="button" class="btn btn-sm btn-success" id="stop">Pause</button>
-            <button type="button" class="btn btn-sm btn-warning" id="reset">Reset</button>
-          </div>
-          <div class="col-12 col-md-6">
-            <p class="text-white" style="text-align: end;">Timer: <span id="hours" class="d-none">00</span><span id="mins">00</span>:<span id="seconds">00</span></p>
+          <div class="col-12 col-md-6 m-auto">
+            <p class="d-flex justify-content-evenly" style="width: 250px; margin: auto;">
+              <button type="button" class="btn btn-primary" id="start">Start</button>
+              <button type="button" class="btn btn-success" id="stop">Pause</button>
+              <button type="button" class="btn btn-warning" id="reset">Reset</button>
+            </p>
           </div>
         </div>
         <div class="row mt-3">
+          <div class="col-12 col-md-6 m-auto">
+            <p class="d-flex justify-content-evenly" style="width: 300px;margin: auto;font-size: 20px;color: rgb(51, 255, 0);">
+              Game Time: <span id="game_time_minute">1</span>minutes, <span id="game_time_second">15</span>seconds
+            </p>
+            <p class="d-flex justify-content-evenly" style="width: 130px;margin: 15px auto 0;font-size: 14px;color: lavenderblush;">
+              Timer: <span id="hours" class="d-none">00</span><span id="mins">00</span>:<span id="seconds">00</span>
+            </p>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-12 col-lg-6 mb-4">
+            <h6 class="py-4" ><b class="text-primary bg-white" style="border-radius: 25px; padding: 10px;">Rules of this Game</b></h6>
+            <ul class="text-white">
+              <li>Game will start, After clicking the 'Start' Button</li>
+              <li>Game will be abandoned & reset, when Clicking the 'Reset' Button</li>
+              <li>'player 1' & 'player 2' will give a number as input</li>
+              <li>Suppose it's player 1's turn, so 'player 1' will have to choose if the number given by 'player 2' is Even or Odd</li>
+              <li>If 'player 1' guess correctly the number given by 'player 2' will be added as points of 'player 1' and the number given by 'player 2' will be deducted as points of 'player 2'</li>
+              <li>The above 3 steps will be repeated again, but this time the turn will be for 'player 2'</li>
+              <li>The turns will change after clicking 'submit' button</li>
+              <li>In this way the game will move on, until we found a 'Winner'</li>
+              <li>If any player can't achieve 20 points before the timer reach to Game Time, then the game will be counted as 'DRAW'</li>
+            </ul>
+          </div>
           <div class="col-md-12 col-lg-6 mb-4">
             <table class="table table table-dark table-p1">
               <thead>
@@ -55,7 +78,7 @@
                     <td><input id="p1Input2" type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
                   </tr>
                   <tr>
-                    <td class="text-info" style="text-align: end;">Choose Player 1's Guess</td>
+                    <td class="text-info" style="text-align: end;">Guess the Number that Player 2 has given is 'Even' or 'Odd'</td>
                     <td>
                       <select name="player2Guess" id="player1Guess" class="form-control">
                         <option value="odd" selected>Odd</option>
@@ -64,7 +87,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td colspan="2">
+                    <td colspan="2" >
                       <div class="d-flex justify-content-center">
                         <input type="submit" class="btn btn-success btn-sm" value="Submit" id="p1Submit">
                       </div>
@@ -92,7 +115,7 @@
                     <td><input id="p2Input2" type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
                   </tr>
                   <tr>
-                    <td class="text-info" style="text-align: end;">Choose Player 2's Guess</td>
+                    <td class="text-info" style="text-align: end;">Guess the Number that Player 1 has given is 'Even' or 'Odd'</td>
                     <td>
                       <select name="player1Guess" id="player2Guess" class="form-control">
                         <option value="even" selected>Even</option>
@@ -111,7 +134,13 @@
               </tbody>
             </table>
           </div>
-          <div class="col-md-12 col-lg-6 mb-4">
+          
+        </div>
+        <hr>
+        <hr>
+        <hr>
+        <div class="row mt-5">
+          <div class="col-md-12 col-lg-8 m-auto">
             <table class="table text-white">
               <thead>
                 <tr>
@@ -123,13 +152,8 @@
               <tbody>
                 <tr>
                   <td><span>Initial</span></td>
-                  <td>Previous: <span>10</span>, Present: <span>10</span></td>
-                  <td>Previous: <span>10</span>, Present: <span>10</span></td>
-                </tr>
-                <tr>
-                  <td><span>Player 1</span></td>
-                  <td>Previous: <span>10</span>, Present: <span>10</span></td>
-                  <td>Previous: <span>10</span>, Present: <span>10</span></td>
+                  <td>Previous: <span>10</span>, Current: <span>10</span></td>
+                  <td>Previous: <span>10</span>, Current: <span>10</span></td>
                 </tr>
               </tbody>
             </table>

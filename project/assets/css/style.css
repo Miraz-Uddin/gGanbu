@@ -97,7 +97,7 @@ input[type="password"]::-ms-reveal {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    min-height: 200vh;
     position: relative;
 }
 
@@ -120,10 +120,9 @@ input[type="password"]::-ms-reveal {
 	z-index: 10;
 }
 
-/* .content {
-    z-index: 11;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-} */
+hr {
+	margin: .5rem 0;
+	color: inherit;
+	background-color: red;
+	opacity: 1;
+}
