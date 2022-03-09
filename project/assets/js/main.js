@@ -11,6 +11,8 @@
     const resetBtn = document.querySelector('#reset');
     const game_time_minute = document.querySelector('#game_time_minute');
     const game_time_second = document.querySelector('#game_time_second');
+    const p1SubmitRow = document.querySelector('#p1SubmitRow');
+    const p2SubmitRow = document.querySelector('#p2SubmitRow');
     let hoursDisplay = document.querySelector('#hours');
     let minsDisplay = document.querySelector('#mins');
     let secondsDisplay = document.querySelector('#seconds');
@@ -33,6 +35,8 @@
     startBtn.addEventListener('click',e=>{
         e.preventDefault();
         startTimer();
+        p1SubmitRow.classList.remove("d-none");
+        p2SubmitRow.classList.remove("d-none");
     });
     stopBtn.addEventListener('click',e=>{
         e.preventDefault();
@@ -47,6 +51,10 @@
         secondsDisplay.textContent='00';
         minsDisplay.textContent='00';
         clearTimeout(timex);
+        p1SubmitRow.classList.remove("d-none");
+        p2SubmitRow.classList.remove("d-none");
+        p1SubmitRow.classList.add("d-none");
+        p2SubmitRow.classList.add("d-none");
     });
     function startTimer(){
         timex = setTimeout(function(){

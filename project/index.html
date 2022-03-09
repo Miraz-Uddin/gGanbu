@@ -28,7 +28,7 @@
           <div class="col-12 col-md-6 m-auto">
             <p class="d-flex justify-content-evenly" style="width: 250px; margin: auto;">
               <button type="button" class="btn btn-primary" id="start">Start</button>
-              <button type="button" class="btn btn-success" id="stop">Pause</button>
+              <button type="button" class="btn btn-success d-none" id="stop">Pause</button>
               <button type="button" class="btn btn-warning" id="reset">Reset</button>
             </p>
           </div>
@@ -88,7 +88,7 @@
                       </div>
                     </td>
                   </tr>
-                  <tr>
+                  <tr id="p1SubmitRow" class="d-none">
                     <td colspan="2" >
                       <div class="d-flex justify-content-center">
                         <input type="submit" class="btn btn-success btn-sm" value="Submit" id="p1Submit">
@@ -119,7 +119,7 @@
                   <tr>
                     <td colspan="2">
                       <div class="text-info d-flex justify-content-evenly align-items-center">
-                        <span>Guess the Number that Player 2 has given is 'Even' or 'Odd'</span>
+                        <span>Guess the Number that Player 1 has given is 'Even' or 'Odd'</span>
                         <select name="player2Guess" id="player2Guess" class="form-select" style="width: 99px; text-align: center;">
                           <option value="odd">Odd</option>
                           <option value="even" selected>Even</option>
@@ -127,7 +127,7 @@
                       </div>
                     </td>
                   </tr>
-                  <tr>
+                  <tr id="p2SubmitRow" class="d-none">
                     <td colspan="2">
                       <div class="d-flex justify-content-center">
                         <input type="submit" class="btn btn-success btn-sm" value="Submit" id="p2Submit">
