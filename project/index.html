@@ -74,16 +74,18 @@
                 </tr>
                 <form>
                   <tr>
-                    <td><input id="p1Input1" type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
-                    <td><input id="p1Input2" type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
+                    <td><input id="p1Input1" type="password" class="form-control" placeholder="Insert (Between 1 - 9)"></td>
+                    <td><input id="p1Input2" type="password" class="form-control" placeholder="Insert (Between 1 - 9)"></td>
                   </tr>
                   <tr>
-                    <td class="text-info" style="text-align: end;">Guess the Number that Player 2 has given is 'Even' or 'Odd'</td>
-                    <td>
-                      <select name="player2Guess" id="player1Guess" class="form-control">
-                        <option value="odd" selected>Odd</option>
-                        <option value="even">Even</option>
-                      </select>
+                    <td colspan="2">
+                      <div class="text-info d-flex justify-content-evenly align-items-center">
+                        <span>Guess the Number that Player 2 has given is 'Even' or 'Odd'</span>
+                        <select name="player1Guess" id="player1Guess" class="form-select" style="width: 99px; text-align: center;">
+                          <option value="odd" selected>Odd</option>
+                          <option value="even">Even</option>
+                        </select>
+                      </div>
                     </td>
                   </tr>
                   <tr>
@@ -111,16 +113,18 @@
                 </tr>
                 <form>
                   <tr>
-                    <td><input id="p2Input1" type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
-                    <td><input id="p2Input2" type="password" class="form-control" placeholder="Enter a Number (Between 1 - 9)"></td>
+                    <td><input id="p2Input1" type="password" class="form-control" placeholder="Insert (Between 1 - 9)"></td>
+                    <td><input id="p2Input2" type="password" class="form-control" placeholder="Insert (Between 1 - 9)"></td>
                   </tr>
                   <tr>
-                    <td class="text-info" style="text-align: end;">Guess the Number that Player 1 has given is 'Even' or 'Odd'</td>
-                    <td>
-                      <select name="player1Guess" id="player2Guess" class="form-control">
-                        <option value="even" selected>Even</option>
-                        <option value="odd">Odd</option>
-                      </select>
+                    <td colspan="2">
+                      <div class="text-info d-flex justify-content-evenly align-items-center">
+                        <span>Guess the Number that Player 2 has given is 'Even' or 'Odd'</span>
+                        <select name="player2Guess" id="player2Guess" class="form-select" style="width: 99px; text-align: center;">
+                          <option value="odd">Odd</option>
+                          <option value="even" selected>Even</option>
+                        </select>
+                      </div>
                     </td>
                   </tr>
                   <tr>
