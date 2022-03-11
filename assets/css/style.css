@@ -97,7 +97,7 @@ input[type="password"]::-ms-reveal {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 160vh;
+    height: 60rem;
     position: relative;
 }
 
@@ -203,6 +203,24 @@ hr {
 
 .navigation_steps li {
     width: 200px;
+}
+
+.navigation_steps ul li ul {
+	background: #1c4e00;
+	z-index: 8888;
+}
+
+.navigation_steps ul li ul li {
+	background: #1c4e00;
+	border-bottom: 1px solid yellow;
+}
+
+.navigation_steps ul li ul li:last-child {
+	border-bottom: none;
+}
+
+.navigation_steps ul li ul li:hover, .navigation_steps ul li ul li:focus-within {
+	background: #350101;
 }
 
 @media (max-width: 1399.98px) {
