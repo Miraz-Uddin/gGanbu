@@ -24,16 +24,56 @@
               <h1 class="text-white text-center">Squid Game - gGanbu</h1>
           </div>
         </div>
+        <div class="row navigation_steps">
+            <div role="navigation">
+              <ul>
+                <li>
+                  <a href="#" aria-haspopup="true">Step-0</a>
+                  <ul class="dropdown" aria-label="submenu">
+                    <li><a href="#">The game will start, if clicked start</li></a></li>
+                    <li><a href="#">we call player 1 as 'p1'</li></a></li>
+                    <li><a href="#">we call player 2 as 'p2'</li></a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" aria-haspopup="true">Step-1</a>
+                  <ul class="dropdown" aria-label="submenu">
+                    <li><a href="#">Suppose it's p1's turn</li></a></li>
+                    <li><a href="#">p1 & p2 both have to give number as input</a></li>
+                    <li><a href="#">p1 will select if p2's given number is Even or Odd</a></li>
+                    <li><a href="#">p1 will click 'submit' button</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" aria-haspopup="true">Step-2</a>
+                  <ul class="dropdown" aria-label="submenu">
+                    <li><a href="#">Suppose it's p2's turn</li></a></li>
+                    <li><a href="#">p1 & p2 both have to give number as input</a></li>
+                    <li><a href="#">p2 will select if p1's given number is Even or Odd</a></li>
+                    <li><a href="#">p2 will click 'submit' button</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" aria-haspopup="true">Step-3</a>
+                  <ul class="dropdown" aria-label="submenu">
+                    <li><a href="#">Step-1 & Step-2 will be repeating</a></li>
+                    <li><a href="#">** Until we find a Winner</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </p>
+        </div>
         <div class="row mt-3">
           <div class="col-12 col-md-6 m-auto">
-            <p class="d-flex justify-content-evenly" style="width: 250px; margin: auto;">
-              <button type="button" class="btn btn-primary" id="start">Start</button>
+            <p class="d-flex justify-content-evenly" style="width: 385px; margin: auto;">
+              <button type="button" class="btn btn-primary" id="start">Click to Start the Game</button>
               <button type="button" class="btn btn-success d-none" id="stop">Pause</button>
-              <button type="button" class="btn btn-warning" id="reset">Reset</button>
+              <button type="button" class="btn btn-warning" id="reset">Click to Reset the Game</button>
             </p>
           </div>
         </div>
-        <div class="row mt-3">
+        <div class="row mt-3 mb-5">
           <div class="col-12 col-md-6 m-auto">
             <p class="d-flex justify-content-evenly" style="width: 300px;margin: auto;font-size: 20px;color: rgb(51, 255, 0);">
               Game Time: <span id="game_time_minute">10</span>minutes, <span id="game_time_second">00</span>seconds
@@ -44,21 +84,7 @@
           </div>
         </div>
         <div class="row mt-3">
-          <div class="col-md-12 col-lg-6 mb-4">
-            <h6 class="py-4" ><b class="text-primary bg-white" style="border-radius: 25px; padding: 10px;">Rules of this Game</b></h6>
-            <ul class="text-white">
-              <li>Game will start, After clicking the 'Start' Button</li>
-              <li>Game will be abandoned & reset, when Clicking the 'Reset' Button</li>
-              <li>'player 1' & 'player 2' will give a number as input</li>
-              <li>Suppose it's player 1's turn, so 'player 1' will have to choose if the number given by 'player 2' is Even or Odd</li>
-              <li>If 'player 1' guess correctly the number given by 'player 2' will be added as points of 'player 1' and the number given by 'player 2' will be deducted as points of 'player 2'</li>
-              <li>The above 3 steps will be repeated again, but this time the turn will be for 'player 2'</li>
-              <li>The turns will change after clicking 'submit' button</li>
-              <li>In this way the game will move on, until we found a 'Winner'</li>
-              <li>If any player can't achieve 20 points before the timer reach to Game Time, then the game will be counted as 'DRAW'</li>
-            </ul>
-          </div>
-          <div class="col-md-12 col-lg-6 mb-4">
+          <div class="col-md-12 col-lg-5 mb-4">
             <table class="table table table-dark table-p1">
               <thead>
                 <tr>
@@ -80,7 +106,7 @@
                   <tr>
                     <td colspan="2">
                       <div class="text-info d-flex justify-content-evenly align-items-center">
-                        <span>Guess the Number that Player 2 has given is 'Even' or 'Odd'</span>
+                        <span>Guess Player 2's input: </span>
                         <select name="player1Guess" id="player1Guess" class="form-select" style="width: 99px; text-align: center;">
                           <option value="odd" selected>Odd</option>
                           <option value="even">Even</option>
@@ -119,7 +145,7 @@
                   <tr>
                     <td colspan="2">
                       <div class="text-info d-flex justify-content-evenly align-items-center">
-                        <span>Guess the Number that Player 1 has given is 'Even' or 'Odd'</span>
+                        <span>Guess Player 1's input: </span>
                         <select name="player2Guess" id="player2Guess" class="form-select" style="width: 99px; text-align: center;">
                           <option value="odd">Odd</option>
                           <option value="even" selected>Even</option>
@@ -138,13 +164,7 @@
               </tbody>
             </table>
           </div>
-          
-        </div>
-        <hr>
-        <hr>
-        <hr>
-        <div class="row mt-5">
-          <div class="col-md-12 col-lg-8 m-auto">
+          <div class="col-md-12 col-lg-7 mb-4">
             <table class="table text-white">
               <thead>
                 <tr>
